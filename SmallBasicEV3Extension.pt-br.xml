@@ -1433,7 +1433,7 @@
             <summary>
             Ordena os elementos de um vetor (Vector) em ordem crescente.
             </summary>
-            <param name="size">Número de elementos para ordenart</param>
+            <param name="size">Número de elementos para ordenar</param>
             <param name="A">O conjunto (Array) contendo os elementos</param>
             <returns>O novo vetor com os elementos na ordem correta</returns>
         </member>
@@ -1454,7 +1454,7 @@
             <summary>
             Operação de multiplicação de Matrizes (Matrix).
             Os vetores de entrada são considerados como matrizes bidimensionais de altura e largura pré-determinadas. As linhas individuais da matriz são armazenadas no vetor uma após a outra.
-                Para aprender mais sobre essa operação matemática visite  https://pt.wikipedia.org/wiki/Produto_de_matrizes .   
+            Para aprender mais sobre essa operação matemática visite  https://pt.wikipedia.org/wiki/Produto_de_matrizes .   
             </summary>
             <param name="rows">Número de linhas na matriz resultante de saída</param>
             <param name="columns">Número de colunas na matriz resultante de saída</param>
