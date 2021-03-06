@@ -1408,65 +1408,122 @@
             When no sound is playing, this function returns immediately.
             </summary>
         </member>
-        <member name="T:SmallBasicEV3Extension.Thread">
+         <!--<member name="T:SmallBasicEV3Extension.Thread">
             <summary>
             This object supports the use of threads in a program.
             A thread is a piece of program code that can run independently and at the same time as other parts of the program. For example, you could create a thread that controls the motors, while a different thread can watch sensors or user input.
             Generally speaking, multithreading is quite a complex topic. To really understand it, some extra study is recommended.
             </summary>
+        </member>-->
+        <member name="T:SmallBasicEV3Extension.Thread">
+            <summary>
+            Este objeto suporta o uso de linhas de execução (Thread) no programa.
+            Uma linha de execução é uma parte do programa que funciona de maneira independente, e simultânea ao resto do programa. Por exemplo, você poderia criar uma linha de execução que controla os motores, enquanto uma outra observa os sensores.
+            Elas funcionam de maneira semelhante a linhas de montagem de uma fábrica, dividindo o trabalho e tornando ele mais eficiente, porém, na prática, pode ser mais complexo. Para compreender mais a fundo a sua aplicação, um estudo maior é necessário.
+            </summary>
         </member>
-        <member name="M:SmallBasicEV3Extension.Thread.Yield">
+        <!--<member name="M:SmallBasicEV3Extension.Thread.Yield">
             <summary>
             Explicitly gives up control of the CPU so other threads may do their work.
             Threads are often not really running in parallel because there may be not enough CPUs to exclusively do the work for each thread. Instead, the CPU will do a bit of work on one thread and then jump to the next thread and so on very quickly, to make it look like everything is running in parallel.
             Whenever a thread has nothing to do just now, but needs to wait for some condition to arrive, it can give up the control of the CPU with the Yield() function, so other threads get the chance to do their work.
             </summary>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Thread.Yield">
+            <summary>
+            Explicitamente abre mão do controle da CPU, para que outras linhas de execução (Thread) possam trabalhar.
+            Linhas de execução muitas vezes não estão trabalhando, de fato, em paralelo, porque não existem CPUs o suficiente para trabalhar para cada uma. Na verdade a CPU vai fazer um pouco do trabalho de cada linha, e depois seguir para a próxima, consecutivamente, de maneira muito rápida, fazendo parecer que elas estão funcionando ao mesmo tempo.
+            Sempre que uma linha não tem nada para fazer no momento, mas precisa esperar uma condição ser cumprida, ela pode abrir mão do controle da CPU com a função Yield(), para que as outras possam trabalhar.
+            </summary>
         </member>
-        <member name="M:SmallBasicEV3Extension.Thread.CreateMutex">
+        <!--<member name="M:SmallBasicEV3Extension.Thread.CreateMutex">
             <summary>
             Create a mutex (short for "mutual exclusion" handler) that can be used for thread synchronization.
             Only creation of mutexes is supported, but not deletion. Best practice is to create all needed mutexes at program start and keep their numbers in global variables.
             </summary>
             <returns>A number specifying the new mutex. Use this for calls to Lock and Unlock</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Thread.CreateMutex">
+            <summary>
+            Cria um mutex (abreviação de controlador de “exclusão mútua") que pode ser usado para sincronização de linhas de execução (Thread).
+            A deleção de mutexes não é suportada, somente sua criação. O melhor é criar todos os que serão necessários no início do programa, e manter seus valores em variáveis globais.
+            </summary>
+            <returns>Um número especificando o novo mutex. Use ele para chamar as funções Lock e Unlock</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Thread.Lock(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Thread.Lock(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Tries to lock the given mutex exclusively so no other thread can acquire a lock on it.
             When another thread already holds a lock on the mutex, the current thread will wait until the lock is released and then acquire the lock itself (once the function call returns, the mutex has been successfully locked).
             This locking mechanism is normally used to protect some data structures or other resources from being accessed by two threads concurrently. Every call to Lock must be paired with a call to a subsequent Unlock.
             </summary>
             <param name="mutex">The number of the mutex (as returned from CreateMutex() )</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Thread.Lock(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Tenta travar um mutex exclusivamente, para que nenhuma outra linha de execução (Thread) possa travar ele.
+            Quando outra linha já travou o mutex, a linha atual vai esperar até que ele seja destravado, para que possa travá-lo(a função retorna quando o mutex foi travado com sucesso).
+            Esse mecanismo de trava normalmente é utilizado para proteger algum pedaço do código de ser acessado por duas linhas simultaneamente. Toda chamada da função Lock é seguida de uma chamada da função Unlock.
+            </summary>
+            <param name="mutex">O número do mutex (gerado pela função CreateMutex() )</param>
         </member>
-        <member name="M:SmallBasicEV3Extension.Thread.Unlock(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Thread.Unlock(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Releases a lock on a mutex. This function must only be called when there was indeed a preceding call to Lock.
             </summary>
             <param name="mutex">The number of the mutex (as returned from CreateMutex() )</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Thread.Unlock(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Destrava um mutex. Essa função só deve ser chamada quando precedida pela função Lock.
+            </summary>
+            <param name="mutex">O número do mutex (gerado pela função CreateMutex() )</param>
         </member>
-        <member name="E:SmallBasicEV3Extension.Thread.Run">
+        <!--<member name="E:SmallBasicEV3Extension.Thread.Run">
             <summary>
             With this property, new threads are created. Just assign a subprogram to this and the subprogram will start running as an independent thread (for example, Thread.Run = MYSUB).
             Any subprogram can be used to create an independent thread, but you can start the same subprogram only as one thread. A second use of Thread.Run, while the specified subprogram is still running, will just add the call to a queue that is processed after the previous run was finished. No runs will be lost in this case, but probably scheduled for a later time.
             Note that even in the presence of running threads, the whole program stops as soon as the main program runs to its end.
             </summary>
+        </member>-->-->
+        <member name="E:SmallBasicEV3Extension.Thread.Run">
+            <summary>
+            Com essa função novas linhas de execução (Thread) são criadas. Só atribua um subprograma a essa função, e ele começará a funcionar como uma linha independente(por exemplo, Thread.Run = MEUSUB).
+            Qualquer subprograma pode ser usado para criar uma linha de execução, porém cada um pode ser usado somente uma vez. Um segundo uso de Thread.Run, enquanto o subprograma ainda está funcionando, só adiciona mais uma chamada para a fila, que será processada após o fim da outra. Nenhuma chamada será perdida nesse caso, só adiada.
+            Note que mesmo que existam linhas funcionando, o programa para assim que o programa principal chegar ao fim.
+            </summary>
         </member>
-        <member name="T:SmallBasicEV3Extension.Vector">
+       <!-- <member name="T:SmallBasicEV3Extension.Vector">
             <summary>
              This object allows direct manipulation of larger quantities of numbers.
              These are called vectors and will be stored using arrays with consecutive indices (starting at 0).
              When arrays with different content are given to the operations, every missing array
              element with be treated as being 0.
             </summary>
+            </member>-->
+        <member name="T:SmallBasicEV3Extension.Vector">
+            <summary>
+             Esse objeto permite a manipulação direta de grandes quantidades de números.
+            Eles são chamados de vetores (Vector), e são armazenados usando conjuntos (Array) de índices consecutivos (começando em 0).
+            Quando conjuntos com tamanhos diferentes forem utilizados em operações, todos os elementos faltantes serão considerados 0.
+            </summary>
         </member>
-        <member name="M:SmallBasicEV3Extension.Vector.Init(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Vector.Init(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Set up a vector of a given size with all elements set to the same value.
             </summary>
             <param name="size">Size of the vector</param>
             <param name="value">The value to use for all elements</param>
             <returns>The created vector</returns>
+            </member>-->
+        <member name="M:SmallBasicEV3Extension.Vector.Init(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Cria um vetor (Vector) de tamanho especificado com elementos de mesmo valor.
+            </summary>
+            <param name="size">Tamanho do vetor</param>
+            <param name="value">O valor que será usado para todos os elementos</param>
+            <returns>O vetor criado</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Vector.Data(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+       <!-- <member name="M:SmallBasicEV3Extension.Vector.Data(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Set up a vector of a given size and initialize the elements with data drawn from a text. For this, the text will be split apart on blank spaces and every part is treated as a decimal number.
             For example: V = Vector.Data(4,"47 11 8 15") will result in an number array with the 4 values 47 11 8 15.
@@ -1474,6 +1531,15 @@
             <param name="size">Size of the resulting vector</param>
             <param name="data">Data in text form to be filled into the array. When the text contains too few elements, the vector is padded with 0 to reach the specified number of elements</param>
             <returns>The created vector</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Vector.Data(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Cria um vetor (Vector) de tamanho especificado, e inicializa ele com elementos provenientes de informações (Data) tiradas de um texto. Para isso, o texto será dividido nos espaços vazios, e cada parte será tratada como um número decimal.
+            Por exemplo: V = Vector.Data(4,”47 11 8 15”) vai resultar em um conjunto (Array) numérico com os 4 valores, 47 11 8 15.
+            </summary>
+            <param name="size">Tamanho do vetor resultante</param>
+            <param name="data">Informações, em forma de texto, para compor o conjunto. Quando faltam elementos no texto, o vetor é preenchido com 0 até alcançar o número de elementos especificados.</param>
+            <returns>O vetor criado</returns>
         </member>
        <!-- <member name="M:SmallBasicEV3Extension.Vector.Add(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
