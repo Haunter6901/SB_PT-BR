@@ -1363,51 +1363,99 @@
             </summary>
             <param name="brickname">Name of the remote brick.</param>
         </member>
-        <member name="T:SmallBasicEV3Extension.Speaker">
+       <!--<member name="T:SmallBasicEV3Extension.Mailbox">
             <summary>
-            Use the brick's built-in speaker to play tones or sound files.
+            Communication facility to send messages via Bluetooth from brick to brick
             </summary>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.Stop">
+
+        </member>-->
+        <member name="T:SmallBasicEV3Extension.Mailbox">
             <summary>
-            Stop any currently playing sound or tone.
+            Recurso de comunicação para enviar mensagens via Bluetooth de brick para brick.
             </summary>
+
         </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.Tone(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Mailbox.Create(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Start playing a simple tone of defined frequency.
+            Create a mailbox on the local brick that can receive messages from other bricks.
+            Only after creation of the box incoming messages can be stored for retrieval.
+            There is a total limit of 30 mailboxes that can be created.
             </summary>
-            <param name="volume">Volume can be 0 - 100</param>
-            <param name="frequency">Frequency in Hz can be 250 - 10000</param>
-            <param name="duration">Duration of the tone in milliseconds</param>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.Note(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <param name="boxname">Name of the message box to be created.</param>
+            <returns>A numerical identifier of the mailbox. This is needed to actually retrieve messages from the box.</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Mailbox.Create(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Start playing a simple tone defined by its text representation.
+            Cria uma caixa de correio (Mailbox) no brick atual que pode receber mensagens de outros bricks.
+            As mensagens recebidas só podem ser armazenadas e buscadas após a criação da caixa de correio.
+            Tem um limite total de 30 caixas que podem ser criadas.
             </summary>
-            <param name="volume">Volume can be 0 - 100</param>
-            <param name="note">Text defining a note "C4" to "B7" or halftones like "C#5"</param>
-            <param name="duration">Duration of the tone in milliseconds</param>
+            <param name="boxname">Nome da caixa de mensagem a ser criada.</param>
+            <returns>Um identificador numérico da caixa de correio. Isso é necessário para que se possa buscar as mensagens da caixa.</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.Play(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Mailbox.Send(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Start playing a sound from a sound file stored on the brick. Only files in .rsf format are supported.
+            Send a message to a mailbox on another brick.
             </summary>
-            <param name="volume">Volume can be 0 - 100</param>
-            <param name="filename">Name of the sound file without the .rsf extension. This filename can be relative to the 'prjs' folder or an absolute path (when starting with '/').</param>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.IsBusy">
+            <param name="brickname">The name of the brick to receive the message. A connection to this brick must be already open for this command to work. You can specify empty Text here, in which case the message will be sent to all connected bricks.</param>
+            <param name="boxname">Name of the message box on the receiving brick.</param>
+            <param name="message">The message as a text. Currently only text messages are supported.</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Mailbox.Send(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Check whether the speaker is still busy playing a previous sound.
+            Manda uma mensagem para uma caixa de correio (Mailbox) em outro brick.
             </summary>
-            <returns>"True", if there is a sound still playing, "False" otherwise</returns>
+            <param name="brickname">O nome do brick que receberá a mensagem. Uma conexão com esse brick já deve estar estabelecida para que o comando funcione. Se esse parâmetro estiver em branco a mensagem será enviada a todos os bricks conectados.</param>
+            <param name="boxname">Nome da caixa de mensagem do brick receptor.</param>
+            <param name="message">A mensagem em forma de texto. No momento somente mensagens de texto são suportadas.</param>
         </member>
-        <member name="M:SmallBasicEV3Extension.Speaker.Wait">
+        <!--<member name="M:SmallBasicEV3Extension.Mailbox.IsAvailable(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Wait until the current sound has finished playing.
-            When no sound is playing, this function returns immediately.
+            Checks if there is a message in the specified mailbox.
             </summary>
+            <param name="id">Identifier of the local mailbox</param>
+            <returns>"True" if there is a message waiting, "False" otherwise</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Mailbox.IsAvailable(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checa se tem uma mensagem na caixa de correio (Mailbox) especificada.
+            </summary>
+            <param name="id">Identificador da caixa de correio local</param>
+            <returns>“True” se tiver uma mensagem, “False” se não</returns>
         </member>
+        <!--<member name="M:SmallBasicEV3Extension.Mailbox.Receive(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Receive the latest message from a local mailbox. When no message is present, the command will block until some message arrives.
+            The message will then be consumed and the next call to Receive will wait for the next message.
+            To avoid blocking, you can check with IsAvailable() whether there is a message in the box. When no message box with the name exists, the command will return "" immediately.
+            </summary>
+            <param name="id">Identifier of the local mailbox</param>
+            <returns>The message as a Text. Currently only text messages are supported.</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Mailbox.Receive(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Recebe a mensagem mais recente de uma caixa de correio (Mailbox) local. Quando nenhuma mensagem estiver disponível, o comando irá bloquear e esperar até que alguma chegue.
+            A mensagem então será consumida, e a próxima chamada da função Receive irá esperar pela próxima mensagem.
+            Para evitar o bloqueio você pode checar com a função IsAvaliable() se tem uma mensagem na caixa. Quando nenhuma mensagem com o nome especificado existir, o comando irá retornar “” imediatamente.
+            </summary>
+            <param name="id">Identificador da caixa de correio local</param>
+            <returns>A mensagem em forma de texto. No momento somente mensagens de texto são suportadas.</returns>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Mailbox.Connect(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Tries to establish a Bluetooth connection to another brick if it is not already connected.
+            Only after a connection has been made (either by this command or manually from the on-brick menu), messages can be exchanged in both directions.
+            </summary>
+            <param name="brickname">Name of the remote brick.</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Mailbox.Connect(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Tenta estabelecer uma conexão Bluetooth com outro brick, se eles ainda não estiverem conectados.
+            Somente após a conexão ser criada (ou através do comando ou manualmente através do menu do brick) é possível trocar mensagens entre os bricks.
+            </summary>
+            <param name="brickname">Nome do outro brick.</param>
+        </member>
+
          <!--<member name="T:SmallBasicEV3Extension.Thread">
             <summary>
             This object supports the use of threads in a program.
