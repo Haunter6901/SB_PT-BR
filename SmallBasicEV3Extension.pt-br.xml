@@ -158,7 +158,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Buttons.GetClicks">
             <summary>
-            Check which buttons were clicked since the last call to GetClicks and returns a text containing their letters.
+            Check which buttons were clicked since the last call to GetClicks and returns a text containing their letters. 
             The 'clicked' state of the buttons is then removed. Also a sound is emitted from the brick when a click was detected.
             </summary>
             <returns>A text containing the letters of the clicked buttons (can be empty)</returns>
@@ -175,8 +175,8 @@
         </member>
         <member name="P:SmallBasicEV3Extension.Buttons.Current">
             <summary>
-            The buttons that are currently pressed.
-            This property contains a text with the key letters of all keys being pressed at the moment.
+            The buttons that are currently pressed. 
+            This property contains a text with the key letters of all keys being pressed at the moment. 
             </summary>
         </member>
         <member name="T:SmallBasicEV3Extension.Byte">
@@ -188,14 +188,14 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Byte.NOT(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Bitwise negation.
+            Bitwise negation. 
             </summary>
             <param name="value">Number to negate</param>
             <returns>The number you get when every bit of the input byte is individually inverted</returns>
         </member>
         <member name="M:SmallBasicEV3Extension.Byte.AND_(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Bitwise AND operation.
+            Bitwise AND operation. 
             </summary>
             <param name="a">First operand</param>
             <param name="b">Second operand</param>
@@ -203,7 +203,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Byte.OR_(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Bitwise OR operation.
+            Bitwise OR operation. 
             </summary>
             <param name="a">First operand</param>
             <param name="b">Second operand</param>
@@ -211,7 +211,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Byte.XOR(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Bitwise XOR operation.
+            Bitwise XOR operation. 
             </summary>
             <param name="a">First operand</param>
             <param name="b">Second operand</param>
@@ -331,7 +331,7 @@
             Write a single byte of data to the file.
             </summary>
             <param name="handle">The file handle (previously obtained from an Open... call)</param>
-            <param name="data">One byte to write (value of 0 - 255)</param>
+            <param name="data">One byte to write (value of 0 - 255)</param>        
         </member>
         <member name="M:SmallBasicEV3Extension.EV3File.ReadLine(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
@@ -365,7 +365,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.EV3File.ConvertToNumber(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Utility function to convert a text to a number.
+            Utility function to convert a text to a number. 
             </summary>
             <param name="text">A text holding a number in decimal representation (with optional fractional digits)</param>
             <returns>The number</returns>
@@ -383,8 +383,8 @@
         </member>
         <member name="T:SmallBasicEV3Extension.F">
             <summary>
-            A framework to create functions with parameters and local variables in Small Basic.
-            This enables programs to call user-defined library functions in a form similar to what is possible with the built-in commands, including nicer parameter passing and return values.
+            A framework to create functions with parameters and local variables in Small Basic. 
+            This enables programs to call user-defined library functions in a form similar to what is possible with the built-in commands, including nicer parameter passing and return values. 
             Functions can be defined by use of the F.Function command and can be later called with one of the F.Call - commands.
             See the provided example "Function.sb" for a better introduction.
             </summary>
@@ -801,8 +801,8 @@
         </member>
         <member name="M:SmallBasicEV3Extension.LCD.StopUpdate">
             <summary>
-            Memorize all subsequent changes to the display instead of directly drawing them.
-            At the next call to Update(), these changes will be finally drawn.
+            Memorize all subsequent changes to the display instead of directly drawing them. 
+            At the next call to Update(), these changes will be finally drawn. 
             You can use this feature to prevent flickering or to speed up drawing complex things to the LCD.
             </summary>
         </member>
@@ -903,7 +903,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.LCD.BmpFile(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Draw a bitmap file in a given color to the display. Only files in .rgf format are supported.
+            Draw a bitmap file in a given color to the display. Only files in .rgf format are supported. 
             </summary>
             <param name="color">0 (white) or 1 (black)</param>
             <param name="x">X coordinate of left edge</param>
@@ -964,7 +964,7 @@
             <summary>
             Control the Motors connected to the EV3 Brick.
             For every Motor function you need to specify one or more motor ports that should be affected (for example, "A", "BC", "ABD").
-            When additional bricks are daisy-chained to the master brick, address the correct port by adding the layer number to the specifier (for example, "3BC", "2A"). In this case only the motors of one brick can be accessed with a single command.
+            When additional bricks are daisy-chained to the master brick, address the correct port by adding the layer number to the specifier (for example, "3BC", "2A"). In this case only the motors of one brick can be accessed with a single command. 
             Speed vs. Power: When requesting to drive a motor with a certain speed, the electrical power will be permanently adjusted to keep the motor on this speed regardless of the necessary driving force (as long as enough power can be provided). When requesting a certain power instead, the motor will be provided with just this much electrical power and the actual speed will then depend on the resistance it meets.
             </summary>
         </member>
@@ -991,7 +991,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Motor.StartSteer(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Set two motors to run with a specified speed and relative ratio.
+            Set two motors to run with a specified speed and relative ratio. 
             This ratio is determined by the 'turn' parameter which basically determines
             into which direction a vehicle with a simple two-wheel drive would make its turn (given that the motor with the lower port letter is mounted on the left side).
             The two motors will be synchronized which means that when one motor experiences some resistance and cannot keep up its speed, the other motor will also slow down or stop altogether. This is especially useful for vehicles with two independently driven wheels which still need to go straight or make a specified turn.
@@ -1003,7 +1003,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Motor.StartSync(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Set two motors to run synchronized at their chosen speed levels.
+            Set two motors to run synchronized at their chosen speed levels. 
             The two motors will be synchronized which means that when one motor experiences some resistance and cannot keep up its speed, the other motor will also slow down or stop altogether. This is especially useful for vehicles with two independently driven wheels which still need to go straight or make a specified turn.
             The motors will keep running until stopped by another command.
             </summary>
@@ -1069,7 +1069,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Motor.ScheduleSync(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Move 2 motors synchronously a defined number of degrees.
+            Move 2 motors synchronously a defined number of degrees. 
             The two motors are synchronized which means that when one motor experiences some resistance and cannot keep up its speed, the other motor will also slow down or stop altogether. This is especially useful for vehicles with two independently driven wheels which still need to go straight or make a specified turn.
             The distance to move is for the motor with the higher speed.
             This function returns immediately. You can use IsBusy() to detect the end of the movement or call Wait() to wait until movement is finished.
@@ -1088,7 +1088,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Motor.GetCount(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Query the current rotation count of a single motor.
+            Query the current rotation count of a single motor. 
             As long as the counter is not reset it will accurately measure all movements of a motor, even if the motor is driven by some external force while not actively running.
             Note that this command does not work for motors connected via daisy-chaining.
             </summary>
@@ -1133,7 +1133,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Motor.MoveSync(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Moves 2 motors synchronously a defined number of degrees.
+            Moves 2 motors synchronously a defined number of degrees. 
             The two motors are synchronized which means that when one motor experiences some resistance and cannot keep up its speed, the other motor will also slow down or stop altogether. This is especially useful for vehicles with two independently driven wheels which still need to go straight or make a specified turn.
             The angle to move is for the motor with the higher speed.
             </summary>
@@ -1183,7 +1183,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Sensor.GetName(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Get the name and mode of a currently connected sensor.
+            Get the name and mode of a currently connected sensor. 
             This function is mainly intended for diagnostic use because you normally know which sensor is plugged to which port on the model.
             </summary>
             <param name="port">Number of the sensor port</param>
@@ -1198,7 +1198,7 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Sensor.GetMode(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Get current operation mode of a sensor.
+            Get current operation mode of a sensor. 
             Many sensors can work in substantially different modes. For example, the color sensor can detect ambient light, reflected light or color. When the sensor is plugged in it will normally start with mode 0, but that can be changed later by the program.
             </summary>
             <param name="port">Number of the sensor port</param>
@@ -1206,9 +1206,9 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Sensor.SetMode(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Switches the mode of a sensor.
+            Switches the mode of a sensor. 
             Many sensors can work in different modes giving quite different readings. The meaning of each mode number depends on the specific sensor type. For further info, see the sensor list in the appendix.
-            Note that a sensor will stay in the selected mode even after the program stops and another (or the same) program is started. To avoid confusion, best practice is to always set the mode of all used sensors at program start.
+            Note that a sensor will stay in the selected mode even after the program stops and another (or the same) program is started. To avoid confusion, best practice is to always set the mode of all used sensors at program start. 
             This command blocks execution until mode switching is finished and first sensor data is available.
             </summary>
             <param name="port">Number of the sensor port</param>
@@ -1239,7 +1239,7 @@
         <member name="M:SmallBasicEV3Extension.Sensor.ReadRaw(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Read current sensor value where the result from ReadPercent() is not specific enough.
-            Some sensor modes deliver values that cannot be translated to percentage (for example a color index) or that contain multiple values at once (for example the individual red, green, blue light intensities that make up RGB).
+            Some sensor modes deliver values that cannot be translated to percentage (for example a color index) or that contain multiple values at once (for example the individual red, green, blue light intensities that make up RGB). 
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="values">Requested size of result array</param>
@@ -1310,60 +1310,14 @@
         </member>
         <member name="M:SmallBasicEV3Extension.Sensor.SendUARTData(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Sends data to devices which are attached to the UART (universal asynchronous receiver transmitter) of one of the sensor ports.
+            Sends data to devices which are attached to the UART (universal asynchronous receiver transmitter) of one of the sensor ports. 
             This can be useful to send custom commands to custom made sensors/actuators.
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="writebytes">Number of bytes to write to the device (maximum 32)</param>
             <param name="writedata">Array holding the data bytes to be sent (starting at 0)</param>
         </member>
-        <member name="T:SmallBasicEV3Extension.Mailbox">
-            <summary>
-            Communication facility to send messages via Bluetooth from brick to brick
-            </summary>
-
-        </member>
-        <member name="M:SmallBasicEV3Extension.Mailbox.Create(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Create a mailbox on the local brick that can receive messages from other bricks.
-            Only after creation of the box incoming messages can be stored for retrieval.
-            There is a total limit of 30 mailboxes that can be created.
-            </summary>
-            <param name="boxname">Name of the message box to be created.</param>
-            <returns>A numerical identifier of the mailbox. This is needed to actually retrieve messages from the box.</returns>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Mailbox.Send(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Send a message to a mailbox on another brick.
-            </summary>
-            <param name="brickname">The name of the brick to receive the message. A connection to this brick must be already open for this command to work. You can specify empty Text here, in which case the message will be sent to all connected bricks.</param>
-            <param name="boxname">Name of the message box on the receiving brick.</param>
-            <param name="message">The message as a text. Currently only text messages are supported.</param>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Mailbox.IsAvailable(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Checks if there is a message in the specified mailbox.
-            </summary>
-            <param name="id">Identifier of the local mailbox</param>
-            <returns>"True" if there is a message waiting, "False" otherwise</returns>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Mailbox.Receive(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Receive the latest message from a local mailbox. When no message is present, the command will block until some message arrives.
-            The message will then be consumed and the next call to Receive will wait for the next message.
-            To avoid blocking, you can check with IsAvailable() whether there is a message in the box. When no message box with the name exists, the command will return "" immediately.
-            </summary>
-            <param name="id">Identifier of the local mailbox</param>
-            <returns>The message as a Text. Currently only text messages are supported.</returns>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Mailbox.Connect(Microsoft.SmallBasic.Library.Primitive)">
-            <summary>
-            Tries to establish a Bluetooth connection to another brick if it is not already connected.
-            Only after a connection has been made (either by this command or manually from the on-brick menu), messages can be exchanged in both directions.
-            </summary>
-            <param name="brickname">Name of the remote brick.</param>
-        </member>
-       <!--<member name="T:SmallBasicEV3Extension.Mailbox">
+        <!--<member name="T:SmallBasicEV3Extension.Mailbox">
             <summary>
             Communication facility to send messages via Bluetooth from brick to brick
             </summary>
@@ -1421,7 +1375,7 @@
             Checa se tem uma mensagem na caixa de correio (Mailbox) especificada.
             </summary>
             <param name="id">Identificador da caixa de correio local</param>
-            <returns>“True” se tiver uma mensagem, “False” se não</returns>
+            <returns>“True” se houver uma mensagem, “False” se não</returns>
         </member>
         <!--<member name="M:SmallBasicEV3Extension.Mailbox.Receive(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
@@ -1455,8 +1409,97 @@
             </summary>
             <param name="brickname">Nome do outro brick.</param>
         </member>
-
-         <!--<member name="T:SmallBasicEV3Extension.Thread">
+        <!--<member name="T:SmallBasicEV3Extension.Speaker">
+            <summary>
+            Use the brick's built-in speaker to play tones or sound files.
+            </summary>
+        </member>-->
+        <member name="T:SmallBasicEV3Extension.Speaker">
+            <summary>
+            Usa o auto-falante do brick para reproduzir tons ou arquivos de som.
+            </summary>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.Stop">
+            <summary>
+            Stop any currently playing sound or tone.
+            </summary>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.Stop">
+            <summary>
+            Para qualquer tom ou arquivo de som que esteja tocando.
+            </summary>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.Tone(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Start playing a simple tone of defined frequency.
+            </summary>
+            <param name="volume">Volume can be 0 - 100</param>
+            <param name="frequency">Frequency in Hz can be 250 - 10000</param>
+            <param name="duration">Duration of the tone in milliseconds</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.Tone(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Começa a tocar um tom simples de frequência definida.
+            </summary>
+            <param name="volume">Volume pode ser 0 - 100</param>
+            <param name="frequency">Frequência em Hz pode ser 250 - 10000</param>
+            <param name="duration">Duração do tom em milissegundos</param>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.Note(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Start playing a simple tone defined by its text representation.
+            </summary>
+            <param name="volume">Volume can be 0 - 100</param>
+            <param name="note">Text defining a note "C4" to "B7" or halftones like "C#5"</param>
+            <param name="duration">Duration of the tone in milliseconds</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.Note(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Começa a tocar um tom simples a partir da sua representação de texto.
+            </summary>
+            <param name="volume">Volume pode ser 0 - 100</param>
+            <param name="note">Texto que define a nota, pode ser de “C4” a “B7” ou semitons como “C#5”</param>
+            <param name="duration">Duração do tom em milissegundos</param>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.Play(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Start playing a sound from a sound file stored on the brick. Only files in .rsf format are supported. 
+            </summary>
+            <param name="volume">Volume can be 0 - 100</param>
+            <param name="filename">Name of the sound file without the .rsf extension. This filename can be relative to the 'prjs' folder or an absolute path (when starting with '/').</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.Play(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Começa a tocar um som a partir de um arquivo de som presente no brick. Somente arquivos no formato .rsf são suportados. 
+            </summary>
+            <param name="volume">Volume pode ser 0 - 100</param>
+            <param name="filename">Nome do arquivo de som sem a extensão .rsf no final. Esse nome pode ser relativo a pasta ‘prjs’ ou a um caminho absoluto (quando iniciado com ‘/’).</param>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.IsBusy">
+            <summary>
+            Check whether the speaker is still busy playing a previous sound.
+            </summary>
+            <returns>"True", if there is a sound still playing, "False" otherwise</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.IsBusy">
+            <summary>
+            Checa se o auto-falante ainda está ocupado reproduzindo algum som.
+            </summary>
+            <returns>“True”, se um som estiver tocando, “False” se não.</returns>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Speaker.Wait">
+            <summary>
+            Wait until the current sound has finished playing.
+            When no sound is playing, this function returns immediately.
+            </summary>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Speaker.Wait">
+            <summary>
+            Espera até que o som atual pare de tocar.
+            Quando nenhum som está tocando, esta função retorna imediatamente.
+            </summary>
+        </member>
+        <!--<member name="T:SmallBasicEV3Extension.Thread">
             <summary>
             This object supports the use of threads in a program.
             A thread is a piece of program code that can run independently and at the same time as other parts of the program. For example, you could create a thread that controls the motors, while a different thread can watch sensors or user input.
@@ -1651,3 +1694,4 @@
         </member>
     </members>
 </doc>
+
