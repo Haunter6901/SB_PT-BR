@@ -1174,86 +1174,165 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="T:SmallBasicEV3Extension.Sensor">
+         <!--<member name="T:SmallBasicEV3Extension.Sensor">
             <summary>
             Access sensors that are attached to the brick.
             To specify the sensor use the port number which is printed below the socket on the brick (for example 1).
             To access sensors of further bricks that are connected via daisy-chaining, use the next higher numbers instead (5 - 8 will access the sensors on the first daisy-chained brick, 9-12 the sensors on the next one and so on).
             </summary>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.GetName(Microsoft.SmallBasic.Library.Primitive)">
+        </member>-->
+        <member name="T:SmallBasicEV3Extension.Sensor">
             <summary>
-            Get the name and mode of a currently connected sensor. 
+            Acessa os sensores conectados ao brick.
+            Para especificar o sensor use o número da porta que está impresso embaixo da entrada no brick (por exemplo 1).
+            Para acessar sensores de outros bricks que estão conectados via encadeamento (Daisy-Chaining), use os próximos números na sequência (5 - 8 vai acessar os sensores no primeiro brick encadeado, 9 - 12 os sensores no segundo, e assim sucessivamente).
+            </summary>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.GetName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Get the name and mode of a currently connected sensor.
             This function is mainly intended for diagnostic use because you normally know which sensor is plugged to which port on the model.
             </summary>
             <param name="port">Number of the sensor port</param>
             <returns>Description text (for example, "TOUCH")</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.GetName(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Obtém o nome e o modo de um sensor conectado.
+            Essa função é usada primariamente para diagnósticos, pois você normalmente sabe qual sensor está conectado em qual porta no brick.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <returns>Texto descritivo (por exemplo, “TOUCH”)</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.GetType(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.GetType(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Get the numerical type identifier of a currently connected sensor.
             </summary>
             <param name="port">Number of the sensor port</param>
             <returns>Sensor type identifier (for example, 16 for a touch sensor)</returns>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.GetMode(Microsoft.SmallBasic.Library.Primitive)">
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.GetType(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Get current operation mode of a sensor. 
+            Obtém o identificador de tipo numérico de um sensor conectado.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <returns>Identificador de tipo do sensor (por exemplo, 16 para um sensor de toque)</returns>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.GetMode(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Get current operation mode of a sensor.
             Many sensors can work in substantially different modes. For example, the color sensor can detect ambient light, reflected light or color. When the sensor is plugged in it will normally start with mode 0, but that can be changed later by the program.
             </summary>
             <param name="port">Number of the sensor port</param>
             <returns>Current operation mode (0 is always the default mode)</returns>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.SetMode(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.GetMode(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Switches the mode of a sensor. 
+            Obtém o identificador do modo de operação atual de um sensor.
+            Muitos sensores podem funcionar de modos muito diferentes. Por exemplo, o sensor de cor pode detectar a luz ambiente, a luz refletida, ou a cor. Quando o sensor é conectado ele normalmente começa no modo 0, mas isso pode ser alterado através da programação.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <returns>Identificador do modo de operação atual (0 é sempre o modo padrão)</returns>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.SetMode(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Switches the mode of a sensor.
             Many sensors can work in different modes giving quite different readings. The meaning of each mode number depends on the specific sensor type. For further info, see the sensor list in the appendix.
-            Note that a sensor will stay in the selected mode even after the program stops and another (or the same) program is started. To avoid confusion, best practice is to always set the mode of all used sensors at program start. 
+            Note that a sensor will stay in the selected mode even after the program stops and another (or the same) program is started. To avoid confusion, best practice is to always set the mode of all used sensors at program start.
             This command blocks execution until mode switching is finished and first sensor data is available.
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="mode">New mode to switch to. This only succeeds when the mode is indeed supported by the sensor.</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.SetMode(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Altera o modo de um sensor.
+            Muitos sensores podem trabalhar de modos diferentes, que retornam leituras muito distintas. O significado de cada identificador varia dependendo do tipo de sensor. Para mais informações, veja a lista de sensores no apêndice.
+            Note que o sensor permanecerá no modo selecionado mesmo após o fim do programa, e início do próximo (ou do mesmo) programa. Para evitar confusão, é melhor sempre definir o modo desejado do sensor no início do programa.
+            Esse comando bloqueia a execução até que o modo seja trocado, e a primeira resposta do sensor seja recebida.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="mode">Identificador do novo modo. Essa função só tem sucesso quando o modo escolhido for suportado pelo sensor.</param>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.IsBusy(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.IsBusy(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Check if a sensor is currently busy switching mode or in process of initialization. After mode switching a sensor may take some time to become ready again.
             </summary>
             <param name="port">Number of the sensor port</param>
             <returns>"True" if the sensor is currently busy</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.IsBusy(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Checa se um sensor está ocupado trocando de modo ou inicializando. Após a troca de modo o sensor pode demorar um pouco para ficar disponível novamente.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <returns>“True” se o sensor estiver ocupado</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.Wait(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.Wait(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Wait until a sensor has finished its reconfiguration. When no sensor is plugged into the port, this function returns immediately.
             Normally you would not need to call this command, because SetMode() blocks until the sensor is ready anyway. It can be useful in special circumstances, like when the mode was switched by a different thread, or when a sensor is plugged into the brick at runtime.
             </summary>
             <param name="port">Number of the sensor port</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.Wait(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Espera até que o sensor termine sua reconfiguração. Quando nenhum sensor está conectado, essa função retorna imediatamente.
+            Normalmente você não precisaria usar esse comando, pois a função SetMode() bloqueia a execução até que o sensor esteja pronto de qualquer forma. Ela pode ser útil em circunstâncias especiais, por exemplo se o modo for trocado por outra linha de execução (Thread), ou quando um sensor é conectado durante a execução do programa.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.ReadPercent(Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.ReadPercent(Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Read the current sensor value and apply some sensible percentage scaling.
             Most sensors can translate the current reading to a meaningful single percentage value like light intensity or button press state.
             </summary>
             <param name="port">Number of the sensor port</param>
             <returns>The percentage value (For example, the touch sensor gives 100 for pressed and 0 for non-pressed)</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.ReadPercent(Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Lê o valor atual do sensor, e aplica uma escala de porcentagem razoável.
+            A maioria dos sensores pode converter o seu valor de leitura para um valor significativo de porcentagem, como intensidade de luz ou estado de um botão.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <returns>O valor da porcentagem (por exemplo, o sensor de toque retorna 100 quando pressionado, e 0 quando não pressionado)</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.ReadRaw(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.ReadRaw(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Read current sensor value where the result from ReadPercent() is not specific enough.
-            Some sensor modes deliver values that cannot be translated to percentage (for example a color index) or that contain multiple values at once (for example the individual red, green, blue light intensities that make up RGB). 
+            Some sensor modes deliver values that cannot be translated to percentage (for example a color index) or that contain multiple values at once (for example the individual red, green, blue light intensities that make up RGB).
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="values">Requested size of result array</param>
             <returns>An array holding the requested number of values. Index starts at 0. Elements that got no data are set to 0.</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.ReadRaw(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Lê o valor atual do sensor quando o resultado da função ReadPercent() não é específico o suficiente.
+            Alguns modos de sensores retornam valores que não podem ser convertidos para porcentagem (por exemplo uma escala de cor) ou que contenham muitos valores de uma vez (por exemplo o valor individual de intensidade de luz vermelha, verde e azul que compõe o RGB)
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="values">Tamanho do conjunto (Array) de retorno desejado</param>
+            <returns>Um conjunto contendo o número especificado de valores. O índice começa no 0. Elementos que não tem nenhuma informação são considerados 0.</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.ReadRawValue(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.ReadRawValue(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Similar to ReadRaw, but returns only a single raw value instead of an array of raw values.
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="index">Index of the value that should be picked from the result array (starting with index 0)</param>
             <returns>One element of a raw sensor reading</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.ReadRawValue(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Similar a função ReadRaw, mas retorna apenas um valor bruto ao invés de um conjunto (Array) de valores.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="index">Índice do valor que deve ser buscado do conjunto resultante (começa no índice 0)</param>
+            <returns>Um elemento de uma leitura bruta do sensor</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.CommunicateI2C(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.CommunicateI2C(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             Communicates with devices using the I2C protocol over one of the sensor ports.
             This command addresses one device on the I2C-bus and can send and receive multiple bytes. This feature could be used to attach a custom sensor or to communicate with any device that is capable of being connected to the I2C bus as a slave.
@@ -1265,8 +1344,21 @@
             <param name="readbytes">Number of bytes to request from the slave (maximum 32, minimum 1)</param>
             <param name="writedata">Array holding the data bytes to be sent (starting at 0)</param>
             <returns>An array holding the requested number of values. Index starts at 0</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.CommunicateI2C(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Se comunica com outros dispositivos usando o protocolo I2C através de uma porta de sensor.
+            O comando endereça um dispositivo no barramento I2C (I2C- bus) e pode ler e escrever múltiplos bytes. Essa funcionalidade poderia ser usada para conectar um sensor personalizado ou para se comunicar com qualquer dispositivo capaz de ser conectado ao barramento I2C como escravo (Slave).
+            Note que esse comando não funciona com encadeamento (Daisy-Chaining).
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="address">Endereço (0 - 127) do escravo I2C no barramento</param>
+            <param name="writebytes">Número de bytes para escrever no escravo (máximo 31)</param>
+            <param name="readbytes">Número de bytes para ler do escravo (máximo 32, mínimo 1)</param>
+            <param name="writedata">Conjunto (Array) contendo os bytes de informação à serem escritos (começando no 0)</param>
+            <returns>Um conjunto contendo o número requisitado de valores. O índice começa no 0.</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             This command addresses one device on the I2C-bus and tries to receive the value of a single register of a connected I2C slave.
             Note that this command does not work over daisy-chaining.
@@ -1275,8 +1367,18 @@
             <param name="address">Address (0 - 127) of the I2C slave on the I2C bus</param>
             <param name="registernumber">Number of register in the slave to read data from</param>
             <returns>The content of the register</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            O comando endereça um dispositivo no barramento I2C (I2C- bus) e tenta receber o valor de um único registro de um escravo (Slave) conectado.
+            Note que esse comando não funciona com encadeamento (Daisy-Chaining).
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="address">Endereço (0 - 127) do escravo I2C no barramento</param>
+            <param name="registernumber">Número do registro a ser lido do escravo</param>
+            <returns>O conteúdo do registro</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             This command addresses one device on the I2C-bus and tries to receive the values of multiple registers of a connected I2C slave.
             Note that this command does not work over daisy-chaining.
@@ -1286,8 +1388,19 @@
             <param name="registernumber">Number of the first register in the slave to read data from</param>
             <param name="readbytes">How many register to read (maximum 32)</param>
             <returns>An array holding the requested number of values. Index starts at 0</returns>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.ReadI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            O comando endereça um dispositivo no barramento I2C (I2C- bus) e tenta receber o valor de múltiplos registros de um escravo (Slave) conectado.
+            Note que esse comando não funciona com encadeamento (Daisy-Chaining).
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="address">Endereço (0 - 127) do escravo I2C no barramento</param>
+            <param name="registernumber">Número do primeiro registro a ser lido do escravo</param>
+            <param name="readbytes">Quantos registros se deseja receber (máximo 32)</param>
+            <returns>Um conjunto (Array) contendo o número requisitado de valores. O índice começa no 0.</returns>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             This command addresses one device on the I2C-bus and tries to write the value of a single register of a connected I2C slave.
             Note that this command does not work over daisy-chaining.
@@ -1296,8 +1409,18 @@
             <param name="address">Address (0 - 127) of the I2C slave on the I2C bus</param>
             <param name="registernumber">Number of the register in the slave to write data to</param>
             <param name="value">Value to write into the register.</param>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegister(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            O comando endereça um dispositivo no barramento I2C (I2C- bus) e tenta escrever um valor em um único registro de um escravo (Slave) conectado.
+            Note que esse comando não funciona com encadeamento (Daisy-Chaining).
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="address">Endereço (0 - 127) do escravo I2C no barramento</param>
+            <param name="registernumber">Número do registro a ser escrito no escravo</param>
+            <param name="value">Valor a ser escrito no registro.</param>
         </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
             This command addresses one device on the I2C-bus and tries to write the values of multiple registers of a connected I2C slave.
             Note that this command does not work over daisy-chaining.
@@ -1307,16 +1430,36 @@
             <param name="registernumber">Number of the first register in the slave to write data to</param>
             <param name="writebytes">How many bytes to write into the registers (maximum 30)</param>
             <param name="writedata">Array holding the data bytes to be written (starting at 0)</param>
-        </member>
-        <member name="M:SmallBasicEV3Extension.Sensor.SendUARTData(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.WriteI2CRegisters(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
             <summary>
-            Sends data to devices which are attached to the UART (universal asynchronous receiver transmitter) of one of the sensor ports. 
+            O comando endereça um dispositivo no barramento I2C (I2C- bus) e tenta escrever um valor em múltiplos registros de um escravo (Slave) conectado.
+            Note que esse comando não funciona com encadeamento (Daisy-Chaining).
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="address">Endereço (0 - 127) do escravo I2C no barramento</param>
+            <param name="registernumber">Número do primeiro registro a ser escrito no escravo</param>
+            <param name="writebytes">Quantos bytes se deseja escrever nos registros (máximo 30)</param>
+            <param name="writedata">Um conjunto (Array) contendo os bytes de informação a serem escritos (começa no 0)</param>
+        </member>
+        <!--<member name="M:SmallBasicEV3Extension.Sensor.SendUARTData(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+            Sends data to devices which are attached to the UART (universal asynchronous receiver transmitter) of one of the sensor ports.
             This can be useful to send custom commands to custom made sensors/actuators.
             </summary>
             <param name="port">Number of the sensor port</param>
             <param name="writebytes">Number of bytes to write to the device (maximum 32)</param>
             <param name="writedata">Array holding the data bytes to be sent (starting at 0)</param>
-        </member>
+        </member>-->
+        <member name="M:SmallBasicEV3Extension.Sensor.SendUARTData(Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive,Microsoft.SmallBasic.Library.Primitive)">
+            <summary>
+           Envia informação para dispositivos conectados no UART (receptor/transmissor universal assíncrono) de uma das portas de sensor.
+            Isso pode ser útil para mandar comandos personalizados para sensores/atuadores personalizados.
+            </summary>
+            <param name="port">Número da porta do sensor</param>
+            <param name="writebytes">Número de bytes que se deseja escrever no dispositivo (máximo 32)</param>
+            <param name="writedata">Um conjunto (Array) contendo os bytes de informação a serem enviados (começa no 0)</param>
+        </member>S
         <!--<member name="T:SmallBasicEV3Extension.Mailbox">
             <summary>
             Communication facility to send messages via Bluetooth from brick to brick
