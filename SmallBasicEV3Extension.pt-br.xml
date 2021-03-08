@@ -1459,7 +1459,7 @@
             <param name="port">Número da porta do sensor</param>
             <param name="writebytes">Número de bytes que se deseja escrever no dispositivo (máximo 32)</param>
             <param name="writedata">Um conjunto (Array) contendo os bytes de informação a serem enviados (começa no 0)</param>
-        </member>S
+        </member>
         <!--<member name="T:SmallBasicEV3Extension.Mailbox">
             <summary>
             Communication facility to send messages via Bluetooth from brick to brick
